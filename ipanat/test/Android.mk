@@ -1,6 +1,7 @@
 BOARD_PLATFORM_LIST := msm8916
 BOARD_PLATFORM_LIST += msm8909
 ifneq ($(call is-board-platform-in-list,$(BOARD_PLATFORM_LIST)),true)
+ifneq ($(TARGET_HAS_IPA_IN_DEVTREE), true)
 ifneq (,$(filter $(QCOM_BOARD_PLATFORMS),$(TARGET_BOARD_PLATFORM)))
 ifneq (, $(filter aarch64 arm arm64, $(TARGET_ARCH)))
 
@@ -50,4 +51,5 @@ include $(BUILD_EXECUTABLE)
 
 endif # $(TARGET_ARCH)
 endif
+endif # $(TARGET_HAS_IPA_IN_DEVTREE)
 endif
